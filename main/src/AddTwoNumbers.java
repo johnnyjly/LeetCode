@@ -13,65 +13,31 @@ import java.util.*;
 public class AddTwoNumbers {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        // Add the first value in l1 and l2 and create the first node for the return ListNode
+        // Initialize the return Node and Get the given two nodes.
+        ListNode result = new ListNode(0);
+        ListNode list1 = l1, list2 = l2, curr = result;
         int increment = 0;
-        int iVal = l1.val + l2.val;
-        if(iVal > 9) {
-            iVal -= 10;
-            increment = 1;
-        }
-        ListNode result = new ListNode(iVal);
-        ListNode temp = result;
-
-        // Add each value in l1 and l2, until one of them has no next Node
-        while(l1.next!= null && l2.next!= null){
-            int tempVal = l1.next.val + l2.next.val + increment;
-            if(tempVal > 9) {
-                tempVal -= 10;
-                increment = 1;
+        while (list1 != null || list2 != null) {
+            int x, y;
+            // Check if list1 has reached its end
+            if(list1 != null) {
+                x = list1.val;
+            }else{
+                x = 0;
             }
-            else{
-                increment = 0;
-            }
-            temp.next = new ListNode(tempVal);
-            temp = temp.next;
-
-            l1 = l1.next;
-            l2 = l2.next;
+            // Check if list2 has reached its end
+            y = (list2 != null) ? list2.val : 0; // Another way of writing if-else by using ? (ternary operator)
+            int sum = increment + x + y;
+            increment = sum / 10;
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next;
+            if (list1 != null) list1 = list1.next;
+            if (list2 != null) list2 = list2.next;
         }
-
-        //Check and add the remaining list
-        if(l1.next == null && l2.next == null){
-            if(increment == 1){
-                temp.next = new ListNode(1);
-            }
-            return result;
+        if (increment > 0) {
+            curr.next = new ListNode(increment);
         }
-        else if(l1.next == null){
-            getListNode(l2, increment, temp);
-            return result;
-        }
-        else{
-            getListNode(l1, increment, temp);
-            return result;
-        }
-    }
-
-    private static void getListNode(ListNode l1, int increment, ListNode temp) {
-        temp.next = l1.next;
-        while(increment == 1 && temp.next != null){
-            if(temp.next.val < 9){
-                increment = 0;
-            }
-            else{
-                temp.next.val -= 10;
-            }
-            temp.next.val += 1;
-            temp = temp.next;
-        }
-        if(increment == 1){
-            temp.next = new ListNode(1);
-        }
+        return result.next;
 
     }
 
