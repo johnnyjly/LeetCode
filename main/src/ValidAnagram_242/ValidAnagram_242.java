@@ -16,8 +16,6 @@ public class ValidAnagram_242 {
         int[] array = new int[128];
         if(s.length() != t.length()){
             return false;
-        }else if(s.length() == 0 && t.length() == 0){
-            return true;
         }
         for(int i = 0; i < s.length(); i++){
             char charS = s.charAt(i);
