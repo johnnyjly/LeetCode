@@ -1,16 +1,7 @@
 import java.util.*;
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-public class AddTwoNumbers {
+
+public class AddTwoNumbers_2 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         // Initialize the return Node and Get the given two nodes.
@@ -41,7 +32,16 @@ public class AddTwoNumbers {
 
     }
 
-
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode() {}
+     *     ListNode(int val) { this.val = val; }
+     *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+     * }
+     */
     static class ListNode {
         int val;
         ListNode next;
