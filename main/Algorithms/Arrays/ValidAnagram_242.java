@@ -1,6 +1,4 @@
-package ValidAnagram_242;
-
-import java.util.*;
+package Arrays;
 
 public class ValidAnagram_242 {
     /**

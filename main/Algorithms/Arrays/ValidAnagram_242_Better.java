@@ -1,4 +1,4 @@
-package ValidAnagram_242;
+package Arrays;
 
 public class ValidAnagram_242_Better {
     /**
