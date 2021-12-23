@@ -1,4 +1,4 @@
-package PalindromeProblems;
+package TwoPointers.PalindromeProblems;
 
 public class LongestPalindromicSubstring_Manacher {
     /**
