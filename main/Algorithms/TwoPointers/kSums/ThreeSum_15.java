@@ -1,4 +1,4 @@
-package TwoPointers;
+package TwoPointers.kSums;
 
 import java.util.*;
 
