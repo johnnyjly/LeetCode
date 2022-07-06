@@ -1,39 +1,37 @@
 package LinkedList;
 
-import LinkedList.AddTwoNumbers_2;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+}
 
 public class SwapNodesInPairs_24 {
 
-    public static ListNode swapPairs(ListNode head) {
+    public ListNode swapPairs(ListNode head) {
         ListNode dummy = new ListNode(-1, head);
         ListNode prev = dummy;
         ListNode curr = head;
-        while(curr != null && curr.next != null){
+        while (curr != null && curr.next != null) {
             ListNode temp = curr.next;
-            curr.next = temp.next;
             prev.next = temp;
+            curr.next = temp.next;
             temp.next = curr;
             prev = curr;
             curr = curr.next;
         }
-        return head;
-    }
-
-    /**
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode() {}
-     *     ListNode(int val) { this.val = val; }
-     *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-     * }
-     */
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        return dummy.next;
     }
 }
